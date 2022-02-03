@@ -1,0 +1,33 @@
+.about,
+.about .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about {
+  background-color: var(--color-about-bg);
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0;
+}
+
+.team-title {
+  margin-left: 3rem;
+  font-size: 3rem;
+}
+
+.team-block-container {
+  display: flex;
+
+}
+
+.team-block {
+  width: 30rem;
+  height: 40rem;
+  margin: 3rem;
+  background-color: var(--color-team-block);
+}

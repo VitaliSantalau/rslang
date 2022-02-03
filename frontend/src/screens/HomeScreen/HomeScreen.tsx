@@ -2,7 +2,7 @@ import './HomeScreen.css';
 import Footer from '../../components/footer/Footer';
 import StartSection from '../../sections/startSection/StartSection';
 import DescSection from '../../sections/descSection/DescSection';
-import TeamSection from '../../sections/teamSection/TeamSection';
+import PromptSection from '../../sections/promptSection/PromptSection';
 
 function HomeScreen() {
   return (
@@ -10,12 +10,7 @@ function HomeScreen() {
       <main className="main homescreen">
         <StartSection />
         <DescSection />
-        <TeamSection />
-        <section className="prompt-section">
-          <div className="container">
-            <h1>prompt</h1>
-          </div>
-        </section>
+        <PromptSection />
       </main>
       <Footer />
     </>

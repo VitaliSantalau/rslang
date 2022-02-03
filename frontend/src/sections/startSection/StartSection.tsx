@@ -18,7 +18,7 @@ function StartSection() {
             </NavLink>
             <NavLink
               to="/project"
-              className="intro-link-prolect"
+              className="intro-link-project"
             >
               about project
             </NavLink>

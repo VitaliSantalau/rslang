@@ -50,7 +50,7 @@
   color: var(--color-second-text);
 }
 
-.intro-link-prolect {
+.intro-link-project {
   padding: 0.5rem 2rem;
   margin-right: 2rem;
   font-size: 2rem;
@@ -61,7 +61,7 @@
   border-radius: 0.4rem;
 }
 
-.intro-link-prolect:hover {
+.intro-link-project:hover {
   background: transparent;
   color: var(--color-third-text);
 }
