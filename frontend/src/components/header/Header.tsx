@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className="header">
       <Menu />
-      <NavLink to="/login">
+      <NavLink to="/auth">
         Login
       </NavLink>
     </header>

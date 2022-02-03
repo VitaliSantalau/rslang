@@ -1,0 +1,39 @@
+.hamburger {
+  position: fixed;
+  left: 3rem;
+  top: 1.5rem;
+  width: 5rem;
+  height: 3rem;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  z-index: 1;
+}
+
+.hamburger div {
+  position: relative;
+  width: 3.5rem;
+  height: 0.3rem;
+  border-radius: 10px;
+  background-color: black;
+  transition: all 0.3s linear;
+  transform-origin: 1px;
+}
+
+.hamburger.open:first-child {
+  transform: rotate((45deg));
+}
+
+.hamburger.open::nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.hamburger.open::nth-child(3) {
+  transform: rotate((-45deg));
+}

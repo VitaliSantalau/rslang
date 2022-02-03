@@ -1,26 +1,25 @@
 import { useState } from 'react';
+import Hamburger from '../hamburger/Hamburger';
 import Nav from '../nav/Nav';
 import './Menu.css';
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
-  function handleClick() {
+  const handleClick = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
   return (
     <div className="menu">
-      <button
-        type="button"
-        className="hamburger"
-        onClick={handleClick}
-      >
-        menu
-      </button>
-      {
-        isOpen && <Nav />
-      }
+      <Hamburger
+        isOpen={isOpen}
+        handleClick={handleClick}
+      />
+      <Nav
+        isOpen={isOpen}
+        handleClick={handleClick}
+      />
     </div>
   );
 }

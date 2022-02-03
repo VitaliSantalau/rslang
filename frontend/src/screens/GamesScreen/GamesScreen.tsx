@@ -1,12 +1,12 @@
-import './HomeScreen.css';
+import './GamesScreen.css';
 import Footer from '../../components/footer/Footer';
 
-function HomeScreen() {
+function GamesScreen() {
   return (
     <>
       <main className="main">
         <div className="container">
-          <h1>home screen</h1>
+          <h1>games screen</h1>
         </div>
       </main>
       <Footer />
@@ -14,4 +14,4 @@ function HomeScreen() {
   );
 }
 
-export default HomeScreen;
+export default GamesScreen;
