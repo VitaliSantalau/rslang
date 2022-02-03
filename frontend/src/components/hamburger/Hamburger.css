@@ -12,28 +12,32 @@
   border: none;
   cursor: pointer;
   outline: none;
-  z-index: 1;
+  z-index: 10;
 }
 
 .hamburger div {
   position: relative;
   width: 3.5rem;
-  height: 0.3rem;
+  height: 0.4rem;
   border-radius: 10px;
-  background-color: black;
+  background: var(--color-button);
   transition: all 0.3s linear;
-  transform-origin: 1px;
+  transform-origin: 0.3rem;
 }
 
-.hamburger.open:first-child {
-  transform: rotate((45deg));
+.hamburger.open div {
+  left: 15rem;
 }
 
-.hamburger.open::nth-child(2) {
+.hamburger.open .hamburger-first {
+  transform: rotate(45deg);
+}
+
+.hamburger.open .hamburger-second {
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateX(2rem);
 }
 
-.hamburger.open::nth-child(3) {
-  transform: rotate((-45deg));
+.hamburger.open .hamburger-third {
+  transform: rotate(-45deg);
 }

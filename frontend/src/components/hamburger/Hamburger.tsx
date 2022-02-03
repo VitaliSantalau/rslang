@@ -5,9 +5,7 @@ type Props = {
   handleClick: () => void;
 }
 
-function Hamburger({
-  isOpen, handleClick,
-}: Props) {
+function Hamburger({ isOpen, handleClick }: Props) {
   const buttonClassName = `hamburger ${
     isOpen ? 'open' : ''
   }`;
@@ -18,9 +16,9 @@ function Hamburger({
       className={buttonClassName}
       onClick={() => handleClick()}
     >
-      <div />
-      <div />
-      <div />
+      <div className="hamburger-first" />
+      <div className="hamburger-second" />
+      <div className="hamburger-third" />
     </button>
   );
 }

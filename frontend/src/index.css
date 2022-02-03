@@ -1,7 +1,12 @@
 :root {
-  --color-main-bg: rgb(128, 128, 128);
-  --color-main-text: rgb(240, 240, 240);
-  --color-line: rgb(59, 68, 26);
+  --color-main-text: #1e212c;
+  --color-second-text: #ffffff;
+  --color-third-text: #FF3F3A;
+  --color-line: #FF3F3A;
+  --color-footer-bg: #1e212c;
+  --color-footer-text: #ffffff;
+  --color-team-block: #ffcf2d;
+  --color-button: linear-gradient(55deg, #FF3F3A 0%, #F75E05 100%);
 }
 
 * {

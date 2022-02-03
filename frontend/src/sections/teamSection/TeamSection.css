@@ -1,0 +1,33 @@
+.team-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-image: url(../../assets/images/team-section-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid;
+}
+
+.team-section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
+.team {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 0;
+  border: 1px solid;
+}
+
+.team-block {
+  width: 30rem;
+  height: 40rem;
+  margin: 3rem;
+  background-color: var(--color-team-block);
+  border: 1px solid;
+}
