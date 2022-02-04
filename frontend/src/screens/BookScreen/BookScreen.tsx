@@ -1,12 +1,13 @@
 import './BookScreen.css';
 import Footer from '../../components/footer/Footer';
+import Book from '../../components/book/Book';
 
 function BookScreen() {
   return (
     <>
       <main className="main">
         <div className="container">
-          <h1>book screen</h1>
+          <Book />
         </div>
       </main>
       <Footer />
