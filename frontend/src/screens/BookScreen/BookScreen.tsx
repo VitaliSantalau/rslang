@@ -5,7 +5,7 @@ import Book from '../../components/book/Book';
 function BookScreen() {
   return (
     <>
-      <main className="main">
+      <main className="main bookscreen">
         <div className="container">
           <Book />
         </div>
