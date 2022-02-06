@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   charter: '1',
@@ -13,10 +13,10 @@ const initialState = {
   ],
 };
 
-export const fetchWords = createAsyncThunk('book/fetchListWords', async () => {
-  const response = await client.get('/fakeApi/posts');
-  return response.data;
-});
+// export const fetchWords = createAsyncThunk('book/fetchListWords', async () => {
+//   const response = await client.get('/fakeApi/posts');
+//   return response.data;
+// });
 
 const bookSlice = createSlice({
   name: 'book',
@@ -29,21 +29,21 @@ const bookSlice = createSlice({
       state.page = action.payload;
     },
   },
-  extraReducers(builder) {
-    builder
-      .addCase(fetchWords.pending, (state, action) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchWords.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        // Add any fetched words to the array
-        state.listwords = state.listwords.concat(action.payload);
-      });
-    // .addCase(fetchWords.rejected, (state, action) => {
-    //   state.status = 'failed';
-    //   state.error = action.error.message;
-    // });
-  },
+  // extraReducers(builder) {
+  //   builder
+  //     .addCase(fetchWords.pending, (state, action) => {
+  //       state.status = 'loading';
+  //     })
+  //     .addCase(fetchWords.fulfilled, (state, action) => {
+  //       state.status = 'succeeded';
+  //       // Add any fetched words to the array
+  //       state.listwords = state.listwords.concat(action.payload);
+  //     });
+  // .addCase(fetchWords.rejected, (state, action) => {
+  //   state.status = 'failed';
+  //   state.error = action.error.message;
+  // });
+// },
 });
 
 export const { changeCharter, changePage } = bookSlice.actions;

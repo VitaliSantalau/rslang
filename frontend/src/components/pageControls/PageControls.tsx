@@ -19,7 +19,7 @@ function PageControls() {
       <button
         type="button"
         className="prev-arrow"
-        disabled={currentPage <= 1}
+        disabled={currentPage === 1}
         onClick={() => handleClick(currentPage - 1)}
       />
       <p>{currentPage}</p>
@@ -28,7 +28,7 @@ function PageControls() {
       <button
         type="button"
         className="next-arrow"
-        disabled={currentPage >= totalPages}
+        disabled={currentPage === totalPages}
         onClick={() => handleClick(currentPage + 1)}
       />
     </div>

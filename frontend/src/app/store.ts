@@ -1,9 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { apiSlice } from './apiSlice';
 import rootReducer from './rootReducer';
 
 export const store = configureStore({
   reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+    .concat(apiSlice.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
