@@ -1,0 +1,23 @@
+.listCharters {
+  grid-area: listCharters;
+  overflow-y: scroll;
+  border-right: 1px solid var(--color-line);
+}
+
+.listCharters::-webkit-scrollbar {
+  width: 0;
+}
+
+.charter {
+  font-size: 5rem;
+  font-weight: 100;
+  padding-top: 1rem;
+  color: var(--color-fourth-text);
+  border-bottom: 1px solid var(--color-line);
+  cursor: pointer;
+}
+
+.charter.selected {
+  font-weight: 400;
+  color: var(--color-third-text);
+}

@@ -1,0 +1,17 @@
+.listWords {
+  grid-area: listWords;
+  padding: 1rem 2rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.listWords::-webkit-scrollbar {
+  width: 0;
+}
+
+.listWords li {
+  width: 80%;
+  height: 20rem;
+  margin-bottom: 1rem;
+  background-color: rgba(208, 240, 228, 0.3);
+}
