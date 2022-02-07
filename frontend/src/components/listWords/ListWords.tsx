@@ -1,24 +1,23 @@
-// import { useEffect } from 'react';
-import { useGetListWordsQuery } from '../../app/apiSlice';
-import Word from '../word/Word';
 import './ListWords.css';
+import Word from '../word/Word';
+import { useGetListWordsQuery } from '../book/bookApiSlice';
+import { useAppSelector } from '../../app/store';
+import { selectCharter, selectPage } from '../book/bookSlice';
+import { IWord } from '../../interfaces/IWord';
 
 function ListWords() {
-  // const dispatch = useAppDispatch();
-  // const currentListWords = useAppSelector((state) => state.book.listwords);
-  // const status = useAppSelector((state) => state.book.status);
+  const currentPage = useAppSelector(selectPage);
+  const currentCharter = useAppSelector(selectCharter);
 
-  // useEffect(() => {
-  //   if (status === 'idle') {
-  //     dispatch(fetchWords());
-  //   }
-  // }, [dispatch, status]);
-
-  const { data } = useGetListWordsQuery({ charter: 1, page: 1 });
+  const { data } = useGetListWordsQuery({
+    charter: currentCharter - 1, page: currentPage - 1,
+  });
 
   if (!data) return <div>wait</div>;
 
-  const listWords = data.map((word: any) => <Word key={word.id} word={word} />);
+  const listWords = data.map((word: IWord) => (
+    <Word key={word.id} word={word} />
+  ));
 
   return (
     <ul className="listWords">

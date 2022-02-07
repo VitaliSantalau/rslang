@@ -1,1 +1,1 @@
-export const totalPages = 20;
+export const totalPages = 30;

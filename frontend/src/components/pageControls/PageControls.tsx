@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useAppDispatch, useAppSelector } from '../../app/store';
 import { totalPages } from '../../constants/constants';
-import { changePage } from '../book/bookSlice';
+import { changePage, selectPage } from '../book/bookSlice';
 import './PageControls.css';
 
 function PageControls() {
-  const currentPage = +useAppSelector((state) => state.book.page);
+  const currentPage = useAppSelector(selectPage);
   const dispatch = useAppDispatch();
 
   const handleClick = (page: number) => {
