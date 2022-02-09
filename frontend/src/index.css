@@ -2,7 +2,7 @@
   --color-main-text: #1e212c;
   --color-second-text: #ffffff;
   --color-third-text: #ff3f3a;
-  --color-fourth-text: #9a3b82;
+  --color-fourth-text: #424551;
   --color-line: #ff3f3a;
   --color-gray: #d7dadd;
   --color-about-bg: #e5e8ed;
@@ -10,7 +10,6 @@
   --color-footer-text: #ffffff;
   --color-team-block: #ffcf2d;
   --color-button: linear-gradient(55deg, #ff3f3a 0%, #f75e05 100%);
-  
 }
 
 * { box-sizing: border-box; }
@@ -18,6 +17,14 @@
 li { list-style: none; }
 
 ul { margin: 0; }
+
+
+input[type="text"] {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
 
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
@@ -43,4 +50,15 @@ body {
   width: 100%;
   max-width: 1920px;
   padding: 0 2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,0 +1,31 @@
+.player {
+  display: inline;
+  background-image: url(../../assets/icons/outline.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition: transform 0.3s;
+}
+
+.player:hover {
+  transform: scale(1.05);
+}
+
+.player.big {
+  width: 3rem;
+  height: 3rem;
+}
+
+.player.medium {
+  width: 2rem;
+  height: 2rem;
+}
+
+.player.small {
+  min-width: 2rem;
+  height: 2rem;
+}

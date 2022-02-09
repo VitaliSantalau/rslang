@@ -1,7 +1,7 @@
 .listCharters {
   grid-area: listCharters;
   overflow-y: scroll;
-  border-right: 1px solid var(--color-line);
+  border-right: 2px solid var(--color-fourth-text);
 }
 
 .listCharters::-webkit-scrollbar {
@@ -9,15 +9,15 @@
 }
 
 .charter {
-  font-size: 5rem;
-  font-weight: 100;
+  font-size: 4rem;
+  font-weight: 300;
   padding-top: 1rem;
   color: var(--color-fourth-text);
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 2px solid var(--color-fourth-text);
   cursor: pointer;
 }
 
 .charter.selected {
-  font-weight: 400;
+  font-weight: 300;
   color: var(--color-third-text);
 }
