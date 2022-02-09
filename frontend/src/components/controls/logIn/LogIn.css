@@ -4,7 +4,7 @@
   font-weight: 500;
   text-decoration: none;
   color: var(--color-main-text);
-  background-image: url(../../assets/icons/user.svg);
+  background-image: url(../../../assets/icons/user.svg);
   background-position: left;
   background-repeat: no-repeat;
   background-size: contain;

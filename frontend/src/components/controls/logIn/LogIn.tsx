@@ -1,17 +1,15 @@
 import { NavLink } from 'react-router-dom';
-import './Auth.css';
+import './LogIn.css';
 
-function Auth() {
+function LogIn() {
   return (
     <NavLink
       to="/auth"
       className="auth-link"
     >
-      {
-        true ? 'Log in' : 'Log out'
-      }
+      Log in / Register
     </NavLink>
   );
 }
 
-export default Auth;
+export default LogIn;

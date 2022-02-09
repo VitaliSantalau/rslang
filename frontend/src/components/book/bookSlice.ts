@@ -2,7 +2,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-const initialState = {
+interface IInitialState {
+  charter: string;
+  page: string;
+}
+
+const initialState: IInitialState = {
   charter: '1',
   page: '1',
 };
