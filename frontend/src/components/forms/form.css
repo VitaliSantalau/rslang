@@ -26,9 +26,9 @@
 }
 
 .form-title-text {
+  margin: 0;
   font-size: 1.4rem;
   font-weight: 300;
-  margin: 0;
   text-align: center;
 }
 
@@ -107,4 +107,28 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.form-alert-container {
+  width: 100%;
+  height: 5rem;
+}
+
+.form-alert {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.form-alert.success {
+  font-size: 3rem;
+  color: green;
+}
+
+.form-alert.error {
+  color: var(--color-third-text);
+}
+
+.form-alert.error p {
+  margin: 0.2rem 0;
 }
