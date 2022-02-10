@@ -2,12 +2,12 @@
 import useAudio from '../../hooks/useAudio';
 import './Player.css';
 
-interface IPropsPlayer {
+interface IProps {
   path: string;
   size: string;
 }
 
-function Player({ path, size }: IPropsPlayer) {
+function Player({ path, size }: IProps) {
   const [switchAudio] = useAudio(path);
 
   return (

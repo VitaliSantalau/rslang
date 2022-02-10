@@ -1,15 +1,21 @@
 import './AuthScreen.css';
-// import { useState } from 'react';
+import { useState } from 'react';
 import Footer from '../../components/footer/Footer';
-import SignIn from '../../components/forms/signIn/SignIn';
+import LogIn from '../../components/forms/Login';
+import Register from '../../components/forms/Register';
 
 function AuthScreen() {
-  // const [state, setState] = useState('signIn');
+  const [form, setForm] = useState('Log in');
+
   return (
     <>
       <main className="main authscreen">
         <div className="container">
-          <SignIn />
+          {
+            form === 'Log in'
+              ? <LogIn setForm={setForm} />
+              : <Register setForm={setForm} />
+          }
         </div>
       </main>
       <Footer />

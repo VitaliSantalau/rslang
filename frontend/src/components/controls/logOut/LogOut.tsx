@@ -2,11 +2,11 @@ import './LogOut.css';
 
 function LogOut() {
   return (
-    <button
-      type="button"
+    <div
+      className="auth-link"
     >
       Log out
-    </button>
+    </div>
   );
 }
 
