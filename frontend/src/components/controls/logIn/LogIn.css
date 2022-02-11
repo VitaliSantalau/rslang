@@ -8,6 +8,7 @@
   background-position: left;
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
 }
 
 .auth-link:hover {

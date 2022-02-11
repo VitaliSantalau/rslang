@@ -28,9 +28,16 @@ function Error({ error }: IProps) {
   }
 
   if (error.status === 'PARSING_ERROR') {
+    let content = '';
+    if (error.originalStatus === 403) {
+      content = `${error.data}. Wrong password`;
+    }
+    if (error.originalStatus === 404) {
+      content = 'Could not find an user with typed e-mail';
+    }
     return (
       <div className="form-alert error">
-        {error.data}
+        {content}
       </div>
     );
   }

@@ -47,8 +47,9 @@ function LogIn({ setForm }: IProps) {
       userId, name, token, refreshToken,
     }));
 
-    navigate('/');
+    setTimeout(() => navigate('/'), 2000);
 
+    localStorage.setItem('userId', userId);
     localStorage.setItem('name', name);
     localStorage.setItem('token', token);
     localStorage.setItem('refreshToken', refreshToken);

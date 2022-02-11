@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
@@ -12,10 +10,10 @@ interface IInitialState {
 }
 
 const initialState: IInitialState = {
-  userId: null,
-  name: null,
-  token: null,
-  refreshToken: null,
+  userId: localStorage.getItem('userId') || null,
+  name: localStorage.getItem('name') || null,
+  token: localStorage.getItem('token') || null,
+  refreshToken: localStorage.getItem('refreshToken') || null,
 };
 
 const authSlice = createSlice({
@@ -37,7 +35,10 @@ const authSlice = createSlice({
       state.refreshToken = refreshToken;
     },
     resetUser(state) {
-      state = initialState;
+      state.userId = null;
+      state.name = null;
+      state.token = null;
+      state.refreshToken = null;
     },
   },
 });
@@ -45,5 +46,6 @@ const authSlice = createSlice({
 export const { setUser, resetUser } = authSlice.actions;
 
 export const selectName = (state: RootState) => state.auth.name;
+export const selectToken = (state: RootState) => state.auth.token;
 
 export default authSlice.reducer;
