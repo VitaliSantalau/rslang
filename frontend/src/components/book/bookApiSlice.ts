@@ -5,6 +5,11 @@ interface IPropsGetListWords {
   page: number;
 }
 
+interface IPropsGetListUserWords {
+  userId: string;
+  filter: string;
+}
+
 export const bookApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getListWords: builder.query({
@@ -12,7 +17,14 @@ export const bookApiSlice = apiSlice.injectEndpoints({
         charter, page,
       }: IPropsGetListWords) => `/words?group=${charter}&page=${page}`,
     }),
+    getListUserWords: builder.query({
+      query: ({
+        id, filter,
+      }: IPropsGetListUserWords) => `/users/${id}/aggregateWords?${filter}`,
+    }),
   }),
 });
 
-export const { useGetListWordsQuery } = bookApiSlice;
+export const {
+  useGetListWordsQuery, useGetListUserWordsQuery,
+} = bookApiSlice;

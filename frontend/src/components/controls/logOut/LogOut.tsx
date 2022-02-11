@@ -8,10 +8,9 @@ function LogOut() {
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {
-    localStorage.removeItem('userId');
-    localStorage.removeItem('name');
-    localStorage.removeItem('token');
-    localStorage.removeItem('refreshToken');
+    ['userId', 'name', 'token', 'refreshToken'].forEach((item) => {
+      localStorage.removeItem(item);
+    });
 
     dispatch(resetUser());
   };

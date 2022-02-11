@@ -1,5 +1,7 @@
 import { useAppSelector } from '../../app/store';
+import { hardWordsCharter } from '../../constants/constants';
 import ListCharters from '../listCharters/ListCharters';
+import HardWords from '../listHardWords/ListHardWords';
 import ListWords from '../listWords/ListWords';
 import PageControls from '../pageControls/PageControls';
 import './Book.css';
@@ -11,11 +13,14 @@ function Book() {
   return (
     <div className="book">
       <ListCharters />
-      <PageControls />
       {
-        currentCharter !== 7
+        (currentCharter !== hardWordsCharter)
+         && <PageControls />
+      }
+      {
+        (currentCharter !== hardWordsCharter)
           ? <ListWords />
-          : <div>hard words</div>
+          : <HardWords />
       }
     </div>
   );

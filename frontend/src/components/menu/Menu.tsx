@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Hamburger from '../hamburger/Hamburger';
+import Hamburger from '../controls/hamburger/Hamburger';
 import Nav from '../nav/Nav';
 import './Menu.css';
 

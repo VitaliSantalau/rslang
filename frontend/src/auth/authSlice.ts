@@ -6,6 +6,7 @@ interface IInitialState {
   userId: string | null;
   name: string | null;
   token: string | null;
+  isNeedRefreshToken: boolean
   refreshToken: string | null;
 }
 
@@ -13,6 +14,7 @@ const initialState: IInitialState = {
   userId: localStorage.getItem('userId') || null,
   name: localStorage.getItem('name') || null,
   token: localStorage.getItem('token') || null,
+  isNeedRefreshToken: false,
   refreshToken: localStorage.getItem('refreshToken') || null,
 };
 
@@ -38,13 +40,20 @@ const authSlice = createSlice({
       state.userId = null;
       state.name = null;
       state.token = null;
+      state.isNeedRefreshToken = false;
       state.refreshToken = null;
+    },
+    toNeedRefreshToken(state) {
+      state.isNeedRefreshToken = true;
     },
   },
 });
 
-export const { setUser, resetUser } = authSlice.actions;
+export const {
+  setUser, resetUser, toNeedRefreshToken,
+} = authSlice.actions;
 
+export const selectUserId = (state: RootState) => state.auth.userId;
 export const selectName = (state: RootState) => state.auth.name;
 export const selectToken = (state: RootState) => state.auth.token;
 

@@ -17,7 +17,7 @@ interface IPropsLogin {
   password: string;
 }
 
-interface IRespLogin {
+export interface IRespLogin {
   message: string;
   token: string;
   refreshToken: string;

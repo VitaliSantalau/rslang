@@ -49,10 +49,10 @@ function LogIn({ setForm }: IProps) {
 
     setTimeout(() => navigate('/'), 2000);
 
-    localStorage.setItem('userId', userId);
-    localStorage.setItem('name', name);
-    localStorage.setItem('token', token);
-    localStorage.setItem('refreshToken', refreshToken);
+    Object.entries(data).forEach(([key, value]) => {
+      if (key === 'message') return;
+      localStorage.setItem(key, value);
+    });
   }
 
   return (
