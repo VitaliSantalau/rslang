@@ -1,16 +1,20 @@
-import { stringify } from 'querystring';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
+import { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../app/store';
+import { useAppDispatch, useAppSelector } from '../../app/store';
 import { selectToken, selectUserId } from '../../auth/authSlice';
+import { IWord } from '../../interfaces/IWord';
 import { useGetListUserWordsQuery } from '../book/bookApiSlice';
 import { changeCharter } from '../book/bookSlice';
+import Spinner from '../spinner/Spinner';
+import Word from '../word/Word';
+import CustomError from './CustomError';
 import './ListHardWords.css';
 
 function HardWords() {
-  const token = useSelector(selectToken);
-  const userId = useSelector(selectUserId);
+  const token = useAppSelector(selectToken);
+  const userId = useAppSelector(selectUserId) as string;
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -21,24 +25,32 @@ function HardWords() {
     }
   });
 
-  if (!userId) throw new Error('userId is null');
+  const audioObj = useMemo(() => new Audio(), []);
 
-  const { data } = useGetListUserWordsQuery({
-    userId, filter: JSON.stringify({}),
-  });
-
-  //   const { data } = useGetListHardWordsQuery();
-
-  //   if (!data) return <div>wait</div>;
-
-  //   const listWords = data.map((word: IWord) => (
-  //     <Word key={word.id} word={word} />
-  //   ));
+  const {
+    data, isLoading, isSuccess, isError, error,
+  } = useGetListUserWordsQuery({ userId });
 
   return (
     <ul className="listWords">
-      <div>hard words</div>
-      {/* {listWords} */}
+      {
+        isLoading && <Spinner />
+      }
+      {
+        isError
+        && <CustomError error={error as FetchBaseQueryError} />
+      }
+      {
+        isSuccess
+        && data.map((word: IWord) => (
+          <Word
+            key={word.id}
+            currentWord={word}
+            audioObj={audioObj}
+            initMode="neut"
+          />
+        ))
+      }
     </ul>
   );
 }

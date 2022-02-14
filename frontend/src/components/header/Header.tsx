@@ -14,7 +14,7 @@ function Header() {
       <Menu />
       <div className="user-name-container">
         {
-          name && (
+          token && (
             <p className="name">{name}</p>
           )
         }

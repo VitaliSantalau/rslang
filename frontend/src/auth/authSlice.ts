@@ -46,11 +46,24 @@ const authSlice = createSlice({
     toNeedRefreshToken(state) {
       state.isNeedRefreshToken = true;
     },
+    toRefreshToken(
+      state,
+      action: PayloadAction<{token: string, refreshToken: string}>,
+    ) {
+      const { token, refreshToken } = action.payload;
+      state.token = token;
+      state.refreshToken = refreshToken;
+    },
+    resetToken(state) {
+      state.token = null;
+      state.isNeedRefreshToken = false;
+      state.refreshToken = null;
+    },
   },
 });
 
 export const {
-  setUser, resetUser, toNeedRefreshToken,
+  setUser, resetUser, toNeedRefreshToken, toRefreshToken, resetToken,
 } = authSlice.actions;
 
 export const selectUserId = (state: RootState) => state.auth.userId;

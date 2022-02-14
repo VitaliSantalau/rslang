@@ -7,7 +7,17 @@ interface IPropsGetListWords {
 
 interface IPropsGetListUserWords {
   userId: string;
-  filter: string;
+}
+
+interface IPropsCreateWord {
+  userId: string;
+  wordId: string;
+  word: string;
+  // {
+  //   difficulty: string;
+  //   optional: unknown;
+
+  // }
 }
 
 export const bookApiSlice = apiSlice.injectEndpoints({
@@ -19,12 +29,19 @@ export const bookApiSlice = apiSlice.injectEndpoints({
     }),
     getListUserWords: builder.query({
       query: ({
-        id, filter,
-      }: IPropsGetListUserWords) => `/users/${id}/aggregateWords?${filter}`,
+        userId,
+      }: IPropsGetListUserWords) => `/users/${userId}/words`,
+    }),
+    createWord: builder.mutation<any, IPropsCreateWord>({
+      query: ({ userId, wordId, word }) => ({
+        url: `users/${userId}/words/${wordId}`,
+        method: 'POST',
+        body: word,
+      }),
     }),
   }),
 });
 
 export const {
-  useGetListWordsQuery, useGetListUserWordsQuery,
+  useGetListWordsQuery, useGetListUserWordsQuery, useCreateWordMutation,
 } = bookApiSlice;

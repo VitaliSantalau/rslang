@@ -12,6 +12,7 @@ function PageControls() {
     dispatch(
       changePage(page),
     );
+    localStorage.setItem('page', `${page}`);
   };
 
   return (

@@ -13,3 +13,7 @@
 .listWords::-webkit-scrollbar {
   width: 0;
 }
+
+.listHardWords.error {
+  text-align: center;
+}
