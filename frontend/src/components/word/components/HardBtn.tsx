@@ -2,54 +2,53 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../../app/store';
 import { selectUserId } from '../../../auth/authSlice';
-import { useCreateWordMutation } from '../../book/bookApiSlice';
+import {
+  useCreateWordMutation, useDeleteWordMutation, useUpdateWordMutation,
+} from '../../book/bookApiSlice';
 import '../Word.css';
 
 interface IProps {
-  handleHard: (isHard: boolean) => void;
   mode: 'neut'|'hard'|'learned';
   wordId: string
 }
 
-function HardBtn({ handleHard, mode, wordId }: IProps) {
+interface IPropsModifyWord {
+  difficulty: 'neut'|'hard'|'learned';
+  optional: unknown,
+}
+
+function HardBtn({ mode, wordId }: IProps) {
   const userId = useAppSelector(selectUserId) as string;
-
-  const [isHard, setIsHard] = useState(false);
-
-  const [createWord, {
-    data, isSuccess,
-  }] = useCreateWordMutation();
+  const [isHard, setIsHard] = useState(mode === 'hard');
+  const [createWord] = useCreateWordMutation();
+  const [updateWord] = useUpdateWordMutation();
+  const [deleteWord] = useDeleteWordMutation();
 
   useEffect(() => {
-    handleHard(isHard);
-  }, [handleHard, isHard]);
-
-  useEffect(() => {
-    if (mode === 'learned') {
-      setIsHard(false);
+    if (isHard && mode === 'neut') {
+      const word: IPropsModifyWord = {
+        difficulty: 'hard',
+        optional: {},
+      };
+      createWord({ userId, wordId, word });
     }
-  }, [mode]);
-
-  const handleClick = () => {
-    const wrd = {
-      difficulty: isHard ? 'hard' : 'neut',
-      optional: {},
-    };
-    const word = JSON.stringify(wrd);
-
-    setIsHard(!isHard);
-    createWord({ userId, wordId, word });
-  };
-
-  if (isSuccess) {
-    console.log(data);
-  }
+    if (isHard && mode === 'learned') {
+      const word: IPropsModifyWord = {
+        difficulty: 'hard',
+        optional: {},
+      };
+      updateWord({ userId, wordId, word });
+    }
+    if (!isHard) {
+      deleteWord({ userId, wordId });
+    }
+  }, [isHard, userId, wordId, mode, createWord, updateWord, deleteWord]);
 
   return (
     <button
       type="button"
       className="btn-hard"
-      onClick={handleClick}
+      onClick={() => setIsHard(!isHard)}
     >
       {isHard ? 'from hard' : 'to hard'}
     </button>

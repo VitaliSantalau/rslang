@@ -14,3 +14,11 @@ export interface IWord {
   textMeaningTranslate: string;
   textExampleTranslate: string;
 }
+
+export interface IUserWord extends IWord {
+  _id: string;
+  userWord: {
+    difficulty: 'neut'|'hard'|'learned';
+    option: unknown;
+  }
+}

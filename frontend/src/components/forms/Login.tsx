@@ -47,7 +47,7 @@ function LogIn({ setForm }: IProps) {
       userId, name, token, refreshToken,
     }));
 
-    setTimeout(() => navigate('/'), 2000);
+    setTimeout(() => navigate('/'), 1000);
 
     Object.entries(data).forEach(([key, value]) => {
       if (key === 'message') return;

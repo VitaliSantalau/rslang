@@ -16,14 +16,13 @@ import './Word.css';
 interface IPropsWord {
   currentWord: IWord;
   audioObj: HTMLAudioElement;
-  initMode: 'neut'|'hard'|'learned';
+  mode: 'neut'|'hard'|'learned';
 }
 
-function Word({ currentWord, audioObj, initMode }: IPropsWord) {
+function Word({ currentWord, audioObj, mode }: IPropsWord) {
   const token = useAppSelector(selectToken);
 
   const [isWord, setIsWord] = useState(true);
-  const [mode, setMode] = useState<'neut'|'hard'|'learned'>(initMode);
 
   const {
     id, image, word, transcription, wordTranslate,
@@ -38,20 +37,8 @@ function Word({ currentWord, audioObj, initMode }: IPropsWord) {
     setIsWord(!isWord);
   };
 
-  const handleHard = (isHard: boolean) => {
-    if (isHard) {
-      setMode('hard');
-    } else setMode('neut');
-  };
-
-  const handleLearn = (isLearn: boolean) => {
-    if (isLearn) {
-      setMode('learned');
-    } else setMode('neut');
-  };
-
   return (
-    <li className={`word-container ${mode}`}>
+    <li className={`word-container ${token ? mode : ''}`}>
       {
         isWord
         && (
@@ -72,8 +59,8 @@ function Word({ currentWord, audioObj, initMode }: IPropsWord) {
               token
               && (
                 <div className="controls-container">
-                  <HardBtn handleHard={handleHard} mode={mode} wordId={id} />
-                  <LearnBtn handleLearn={handleLearn} mode={mode} />
+                  <HardBtn mode={mode} wordId={id} />
+                  <LearnBtn mode={mode} wordId={id} />
                   <StatBtn handleStat={handleStat} isWord={isWord} />
                 </div>
               )

@@ -3,22 +3,12 @@ import { useEffect, useState } from 'react';
 import '../Word.css';
 
 interface IProps {
-  handleLearn: (isLearn: boolean) => void;
   mode: 'neut'|'hard'|'learned';
+  wordId: string
 }
 
-function LearnBtn({ handleLearn, mode }: IProps) {
+function LearnBtn({ mode, wordId }: IProps) {
   const [isLearn, setIsLearn] = useState(false);
-
-  useEffect(() => {
-    handleLearn(isLearn);
-  }, [handleLearn, isLearn]);
-
-  useEffect(() => {
-    if (mode === 'hard') {
-      setIsLearn(false);
-    }
-  }, [mode]);
 
   return (
     <button

@@ -13,6 +13,14 @@
   border-bottom-right-radius: 2rem;
 }
 
+.word-container.neut {
+  border: 2px solid blue;
+}
+
+.word-container.hard {
+  border: 2px solid red;
+}
+
 .word-img {
   grid-area: image;
   width: 100%;
