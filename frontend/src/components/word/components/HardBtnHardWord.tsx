@@ -19,10 +19,10 @@ function HardBtnHardWord({ wordId }: IProps) {
   return (
     <button
       type="button"
-      className="btn-hard from"
+      className="btn-hard"
       onClick={handleClick}
     >
-      hard
+      delete
     </button>
   );
 }

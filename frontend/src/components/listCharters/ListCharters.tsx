@@ -36,7 +36,6 @@ function ListCharters() {
         onClick={() => handleClick(charter)}
       >
         <p>{charter}</p>
-        {charter === currentCharter ? '*' : ''}
         <p className="charter-mark" />
       </li>
     ));

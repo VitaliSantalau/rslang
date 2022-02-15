@@ -49,10 +49,10 @@ function LearnBtn({ mode, wordId }: IProps) {
   return (
     <button
       type="button"
-      className={`btn-learn ${isLearn ? 'from' : 'to'}`}
+      className="btn-learn"
       onClick={() => setIsLearn(!isLearn)}
     >
-      learned
+      {isLearn ? 'unlearned' : 'learned'}
     </button>
   );
 }
