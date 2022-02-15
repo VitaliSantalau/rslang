@@ -10,7 +10,7 @@ function StatBtn({ handleStat, isWord }: IProps) {
   return (
     <button
       type="button"
-      className={`btn-stat ${isWord ? 'toStat' : 'fromStat'}`}
+      className={`btn-stat ${isWord ? 'to' : 'from'}`}
       onClick={handleStat}
     />
   );

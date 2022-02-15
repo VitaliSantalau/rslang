@@ -3,16 +3,15 @@ import '../Word.css';
 import StatBtn from './StatBtn';
 
 interface IProps {
-  id: string;
   handleStat: () => void;
+  isWord: boolean;
 }
 
-function StatWord({ id, handleStat }: IProps) {
+function StatWord({ handleStat, isWord }: IProps) {
   return (
     <p>
-      statistic of word with id
-      {id}
-      <StatBtn handleStat={handleStat} />
+      statistic of word
+      <StatBtn isWord={isWord} handleStat={handleStat} />
     </p>
   );
 }

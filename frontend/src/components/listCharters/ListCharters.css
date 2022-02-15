@@ -10,79 +10,84 @@
 }
 
 .charter {
-  position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 6rem;
   font-size: 4rem;
   font-weight: 300;
   padding-top: 1rem;
+  padding-left: 1rem;
   border-bottom: 2px solid var(--color-fourth-text);
   cursor: pointer;
-  opacity: 0.2;
 }
 
 .charter:hover {
-  opacity: 0.5;
+  color: var(--color-third-text);
 }
 
 .charter.selected {
-  opacity: 1;
+  color: var(--color-third-text);
 }
 
-.charter:first-child {
-  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=f7db7f);
+.charter-mark {
+  width: 70%;
+  height: 5rem;
+}
+
+.charter:first-child .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=f8f4e9);
 }
 
 
-.charter:nth-child(2) {
-  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fcd24a);
+.charter:nth-child(2) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=faf0d0);
 }
 
-.charter:nth-child(3) {
-  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=faa84a);
+.charter:nth-child(3) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=f5d0a5);
 }
 
-.charter:nth-child(4) {
-  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=9ab4f7);
+.charter:nth-child(4) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=dfe6fa);
 }
 
-.charter:nth-child(5) {
-  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=6590fd);
+.charter:nth-child(5) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=bbcdfa);
 }
 
-.charter:nth-child(6) {
-  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=994684);
+.charter:nth-child(6) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=dba8ce);
 }
 
-.charter:nth-child(7) {
-  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=f57070);
+.charter:nth-child(7) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=f1a9a9);
 }
 
 .listCharters.firstCharter ~ .listWords > .word-container {
-  background-color: rgba(247, 219, 127, 0.4);
+  background-color: #f8f4e9;
 }
 
 .listCharters.secondCharter ~ .listWords > .word-container {
-  background-color: rgba(252, 210, 74, 0.5);
+  background-color: #faf0d0;
 }
 
 .listCharters.thirdCharter ~ .listWords > .word-container {
-  background-color: rgba(250, 168, 74, 0.5);
+  background-color: #f5d0a5;
 }
 
 .listCharters.fourthCharter ~ .listWords > .word-container {
-  background-color: rgba(154, 180, 247, 0.4);
+  background-color: #dfe6fa;
 }
 
 .listCharters.fifthCharter ~ .listWords > .word-container {
-  background-color: rgba(101, 144, 253, 0.5);
+  background-color: #bbcdfa;
 }
 
 .listCharters.sixthCharter ~ .listWords > .word-container {
-  background-color: rgba(153, 70, 132, 0.5);
+  background-color: #dba8ce;
 }
 
 .listCharters.seventhCharter ~ .listWords > .word-container {
-  background-color: rgba(245, 112, 112, 0.5);
+  background-color: #f1a9a9;
 }

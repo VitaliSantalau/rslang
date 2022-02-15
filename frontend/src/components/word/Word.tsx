@@ -59,8 +59,10 @@ function Word({ currentWord, audioObj, mode }: IPropsWord) {
               token
               && (
                 <div className="controls-container">
-                  <HardBtn mode={mode} wordId={id} />
-                  <LearnBtn mode={mode} wordId={id} />
+                  <div className="row">
+                    <HardBtn mode={mode} wordId={id} />
+                    <LearnBtn mode={mode} wordId={id} />
+                  </div>
                   <StatBtn handleStat={handleStat} isWord={isWord} />
                 </div>
               )
@@ -70,7 +72,7 @@ function Word({ currentWord, audioObj, mode }: IPropsWord) {
       }
       {
         !isWord
-        && <StatWord id={id} handleStat={handleStat} />
+        && <StatWord isWord={isWord} handleStat={handleStat} />
       }
     </li>
   );

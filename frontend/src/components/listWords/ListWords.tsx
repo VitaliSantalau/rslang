@@ -24,6 +24,7 @@ function ListWords() {
   const audioObj = useMemo(() => new Audio(), []);
 
   const [skip, setSkip] = useState(true);
+  const [isDatas, setIsDatas] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -32,20 +33,24 @@ function ListWords() {
   }, [token]);
 
   const {
-    data, isLoading, isError, error,
+    data, isLoading, isError, error, isFetching,
   } = useGetListWordsQuery({
     charter: currentCharter - 1, page: currentPage - 1,
   });
 
   const {
     data: userData, isLoading: isLoadingUser,
-    isError: isErrorUser, error: errorUser, isFetching,
+    isError: isErrorUser, error: errorUser, isFetching: isFetchingUser,
   } = useGetListUserWordsQuery({
     userId, charter: currentCharter - 1, page: currentPage - 1,
   }, { skip });
 
+  useEffect(() => {
+    setIsDatas(data && (token ? userData : true));
+  }, [data, token, userData]);
+
   if (
-    isLoading || isLoadingUser || isFetching
+    isLoading || isLoadingUser || isFetching || isFetchingUser
   ) return <Spinner />;
 
   if (isError) return <CustomError error={error as FetchBaseQueryError} />;
@@ -66,7 +71,8 @@ function ListWords() {
   return (
     <ul className="listWords">
       {
-        data.map((word: IWord) => (
+        isDatas
+        && data.map((word: IWord) => (
           <Word
             key={word.id}
             currentWord={word}

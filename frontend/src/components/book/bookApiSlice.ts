@@ -13,6 +13,10 @@ interface IPropsGetListUserWords {
   page: number;
 }
 
+interface IPropsGetListUserHardWords {
+  userId: string;
+}
+
 interface IRespGetListUserWords {
   paginatedResults: IUserWord[]
 }
@@ -50,11 +54,20 @@ export const bookApiSlice = apiSlice.injectEndpoints({
     getListUserWords: builder.query({
       query: ({
         userId, charter, page,
-      }: IPropsGetListUserWords) => `/users/${userId}/aggregatedWords?group=${charter}&page=${page}&{}`,
+      }: IPropsGetListUserWords) => `/users/${userId}/aggregatedWords?group=${charter}&page=${page}`,
       transformResponse(response: IRespGetListUserWords[]) {
         return response
           ? response[0].paginatedResults.filter((el: IUserWord) => el.userWord)
           : [];
+      },
+      providesTags: ['MogifyWord'],
+    }),
+    getListUserHardWords: builder.query({
+      query: ({
+        userId,
+      }: IPropsGetListUserHardWords) => `/users/${userId}/aggregatedWords?filter={"userWord.difficulty":"hard"}`,
+      transformResponse(response: IRespGetListUserWords[]) {
+        return response[0].paginatedResults;
       },
       providesTags: ['MogifyWord'],
     }),
@@ -86,5 +99,5 @@ export const bookApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetListWordsQuery, useGetListUserWordsQuery, useCreateWordMutation,
-  useUpdateWordMutation, useDeleteWordMutation,
+  useUpdateWordMutation, useDeleteWordMutation, useGetListUserHardWordsQuery,
 } = bookApiSlice;

@@ -11,6 +11,7 @@ import Header from '../components/header/Header';
 function App() {
   return (
     <div className="app">
+      <Header />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/auth" element={<AuthScreen />} />
@@ -19,7 +20,6 @@ function App() {
         <Route path="/stat" element={<StatScreen />} />
         <Route path="/about" element={<AboutScreen />} />
       </Routes>
-      <Header />
     </div>
   );
 }

@@ -34,7 +34,11 @@ function ListCharters() {
         key={charter}
         className={`charter ${charter === currentCharter ? 'selected' : ''}`}
         onClick={() => handleClick(charter)}
-      />
+      >
+        <p>{charter}</p>
+        {charter === currentCharter ? '*' : ''}
+        <p className="charter-mark" />
+      </li>
     ));
 
   return (

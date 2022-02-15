@@ -49,10 +49,10 @@ function HardBtn({ mode, wordId }: IProps) {
   return (
     <button
       type="button"
-      className="btn-hard"
+      className={`btn-hard ${isHard ? 'from' : 'to'}`}
       onClick={() => setIsHard(!isHard)}
     >
-      {isHard ? 'from hard' : 'to hard'}
+      hard
     </button>
   );
 }

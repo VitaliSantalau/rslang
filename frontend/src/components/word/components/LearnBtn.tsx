@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../../app/store';
 import { selectUserId } from '../../../auth/authSlice';
 import {
-  useCreateWordMutation, useDeleteWordMutation, useUpdateWordMutation
+  useCreateWordMutation, useDeleteWordMutation, useUpdateWordMutation,
 } from '../../book/bookApiSlice';
 import '../Word.css';
 
@@ -49,10 +49,10 @@ function LearnBtn({ mode, wordId }: IProps) {
   return (
     <button
       type="button"
-      className="btn-learn"
+      className={`btn-learn ${isLearn ? 'from' : 'to'}`}
       onClick={() => setIsLearn(!isLearn)}
     >
-      {isLearn ? 'from learn' : 'to learn'}
+      learned
     </button>
   );
 }
