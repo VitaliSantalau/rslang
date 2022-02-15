@@ -21,6 +21,10 @@
   border: 2px solid red;
 }
 
+.word-container.learned {
+  border: 2px solid green;
+}
+
 .word-img {
   grid-area: image;
   width: 100%;

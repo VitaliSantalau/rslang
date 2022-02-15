@@ -29,7 +29,7 @@ function ListWords() {
     if (token) {
       setSkip(false);
     } else setSkip(true);
-  }, []);
+  }, [token]);
 
   const {
     data, isLoading, isError, error,
@@ -39,12 +39,15 @@ function ListWords() {
 
   const {
     data: userData, isLoading: isLoadingUser,
-    isError: isErrorUser, error: errorUser,
+    isError: isErrorUser, error: errorUser, isFetching,
   } = useGetListUserWordsQuery({
     userId, charter: currentCharter - 1, page: currentPage - 1,
   }, { skip });
 
-  if (isLoading || isLoadingUser) return <Spinner />;
+  if (
+    isLoading || isLoadingUser || isFetching
+  ) return <Spinner />;
+
   if (isError) return <CustomError error={error as FetchBaseQueryError} />;
   if (isErrorUser) {
     return <CustomError error={errorUser as FetchBaseQueryError} />;
@@ -60,20 +63,18 @@ function ListWords() {
       : 'neut';
   };
 
-  console.log(userData);
-
-  const listWords = data.map((word: IWord) => (
-    <Word
-      key={word.id}
-      currentWord={word}
-      audioObj={audioObj}
-      mode={getMode(word.id)}
-    />
-  ));
-
   return (
     <ul className="listWords">
-      {listWords}
+      {
+        data.map((word: IWord) => (
+          <Word
+            key={word.id}
+            currentWord={word}
+            audioObj={audioObj}
+            mode={getMode(word.id)}
+          />
+        ))
+      }
     </ul>
   );
 }

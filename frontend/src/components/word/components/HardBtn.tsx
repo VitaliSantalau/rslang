@@ -19,7 +19,9 @@ interface IPropsModifyWord {
 
 function HardBtn({ mode, wordId }: IProps) {
   const userId = useAppSelector(selectUserId) as string;
+
   const [isHard, setIsHard] = useState(mode === 'hard');
+
   const [createWord] = useCreateWordMutation();
   const [updateWord] = useUpdateWordMutation();
   const [deleteWord] = useDeleteWordMutation();
@@ -39,7 +41,7 @@ function HardBtn({ mode, wordId }: IProps) {
       };
       updateWord({ userId, wordId, word });
     }
-    if (!isHard) {
+    if (!isHard && mode === 'hard') {
       deleteWord({ userId, wordId });
     }
   }, [isHard, userId, wordId, mode, createWord, updateWord, deleteWord]);
