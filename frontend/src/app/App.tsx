@@ -7,6 +7,7 @@ import GamesScreen from '../screens/GamesScreen/GamesScreen';
 import StatScreen from '../screens/StatScreen/StatScreen';
 import AboutScreen from '../screens/AboutScreen/AboutScreen';
 import Header from '../components/header/Header';
+import AudioChallenge from '../games/audioChallenge/AudioChallenge';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/auth" element={<AuthScreen />} />
         <Route path="/book" element={<BookScreen />} />
         <Route path="/games" element={<GamesScreen />} />
+        <Route path="/games/audiochallenge" element={<AudioChallenge />} />
         <Route path="/stat" element={<StatScreen />} />
         <Route path="/about" element={<AboutScreen />} />
       </Routes>
