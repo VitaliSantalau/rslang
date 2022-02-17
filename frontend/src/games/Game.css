@@ -1,9 +1,9 @@
 .game {
-  background-color: aqua;
+  background-color: var(--color-audiochallenge-bg);
 }
 
 .game ~ footer {
-  background-color: aqua;
+  background-color: var(--color-audiochallenge-bg);
 }
 
 .game ~ footer * {

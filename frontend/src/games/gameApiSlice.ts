@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { apiSlice } from '../app/apiSlice';
-import { IUserWord } from '../interfaces/IWord';
+import { IUserWord, IWord } from '../interfaces/IWord';
 
 interface IPropsGetMainWords {
   charter: number;
@@ -19,21 +19,20 @@ interface IRespGetBookWords {
 
 export const gameApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getMainWords: builder.query({
+    getMainWords: builder.query<IWord[], IPropsGetMainWords>({
       query: ({
         charter, page,
-      }: IPropsGetMainWords) => `/words?group=${charter}&page=${page}`,
+      }) => `/words?group=${charter}&page=${page}`,
     }),
-    getBookWords: builder.query({
+    getBookWords: builder.query<IUserWord[], IPropsGetBookWords>({
       query: ({
         userId, charter, page,
-      }: IPropsGetBookWords) => (
-        `/users/${userId}/aggregatedWords?group=${charter}&page=${page}`
+      }) => (
+        `/users/${userId}/aggregatedWords?group=${charter}&page=${page}&wordsPerPage=20`
       ),
       transformResponse(response: IRespGetBookWords[]) {
         return response[0].paginatedResults;
       },
-      providesTags: ['MogifyWord'],
     }),
   }),
 });

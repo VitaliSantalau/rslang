@@ -1,30 +1,44 @@
 import { useState } from 'react';
 import { useAppSelector } from '../../../app/store';
-import { selectUserId } from '../../../auth/authSlice';
 import { selectCharter, selectPage } from '../../gameSlice';
 import '../../Game.css';
 import { useGetMainWordsQuery } from '../../gameApiSlice';
-import { IWord } from '../../../interfaces/IWord';
 import Spinner from '../../../components/spinner/Spinner';
+import NextBtn from '../../components/nextBtn/NextBtn';
+import Player from '../../components/player/Player';
+import Answers from '../../components/answers/Answers';
 
 function PlayAudioChallenge() {
   const [index, setIndex] = useState(0);
 
-  const userId = useAppSelector(selectUserId) as string;
-  const charter = useAppSelector(selectCharter) - 1;
-  const page = useAppSelector(selectPage) - 1;
+  const charter = useAppSelector(selectCharter);
+  const page = useAppSelector(selectPage);
 
   const {
-    data, isLoading, isFetching, isError, error,
+    data, isFetching, isLoading,
   } = useGetMainWordsQuery({ charter, page });
 
-  if (isLoading || isFetching) return <Spinner />;
+  const handleChangeIndex = () => {
+    if (data && index < data.length - 1) {
+      setIndex((prev) => prev + 1);
+    }
+  };
+
+  if (isFetching || isLoading) return <Spinner />;
 
   return (
     <div className="game-play">
       {
         data
-        && data[index].word
+        && (
+          <>
+            <Player path={data[index].audio} />
+            <Answers wordId={data[index].id} data={data} />
+            <NextBtn
+              handleChangeIndex={handleChangeIndex}
+            />
+          </>
+        )
       }
     </div>
   );

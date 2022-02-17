@@ -54,7 +54,7 @@ export const bookApiSlice = apiSlice.injectEndpoints({
     getListUserWords: builder.query({
       query: ({
         userId, charter, page,
-      }: IPropsGetListUserWords) => `/users/${userId}/aggregatedWords?group=${charter}&page=${page}`,
+      }: IPropsGetListUserWords) => `/users/${userId}/aggregatedWords?group=${charter}&page=${page}&wordsPerPage=20`,
       transformResponse(response: IRespGetListUserWords[]) {
         return response
           ? response[0].paginatedResults.filter((el: IUserWord) => el.userWord)
@@ -65,7 +65,9 @@ export const bookApiSlice = apiSlice.injectEndpoints({
     getListUserHardWords: builder.query({
       query: ({
         userId,
-      }: IPropsGetListUserHardWords) => `/users/${userId}/aggregatedWords?filter={"userWord.difficulty":"hard"}`,
+      }: IPropsGetListUserHardWords) => (
+        `/users/${userId}/aggregatedWords?filter={"userWord.difficulty":"hard"}&wordsPerPage=4000`
+      ),
       transformResponse(response: IRespGetListUserWords[]) {
         return response[0].paginatedResults;
       },

@@ -3,7 +3,7 @@ import Start from '../modes/start/Start';
 import { selectMode } from '../gameSlice';
 import '../Game.css';
 import Footer from '../../components/footer/Footer';
-import PlayAudioChallenge from '../modes/play/PlayAudioChallenge';
+import Play from '../modes/play/Play';
 
 function AudioChallenge() {
   const mode = useAppSelector(selectMode);
@@ -23,9 +23,7 @@ function AudioChallenge() {
           }
           {
             mode === 'play'
-            && (
-              <PlayAudioChallenge />
-            )
+            && <Play game="audioChallenge" />
           }
           {
             mode === 'result'

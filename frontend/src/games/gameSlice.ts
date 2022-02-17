@@ -26,6 +26,12 @@ const gameSlice = createSlice({
     ) {
       state.mode = action.payload;
     },
+    setSource(
+      state,
+      action: PayloadAction<'main' | 'book'>,
+    ) {
+      state.source = action.payload;
+    },
     setLevel(
       state,
       action: PayloadAction<number>,
@@ -36,11 +42,12 @@ const gameSlice = createSlice({
 });
 
 export const {
-  changeMode, setLevel,
+  changeMode, setLevel, setSource,
 } = gameSlice.actions;
 
-export const selectCharter = (state: RootState) => state.game.charter;
-export const selectPage = (state: RootState) => state.game.page;
+export const selectSource = (state: RootState) => state.game.source;
+export const selectCharter = (state: RootState) => state.game.charter - 1;
+export const selectPage = (state: RootState) => state.game.page - 1;
 export const selectMode = (state: RootState) => state.game.mode;
 
 export default gameSlice.reducer;
