@@ -3,15 +3,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
 
 interface IInitialState {
+  mode: 'start' | 'play' | 'result';
+  source: 'main' | 'book';
   charter: number;
   page: number;
-  mode: 'start' | 'play' | 'result';
 }
 
 const initialState: IInitialState = {
+  mode: 'start',
+  source: 'main',
   charter: 1,
   page: 1,
-  mode: 'start',
 };
 
 const gameSlice = createSlice({
@@ -20,22 +22,15 @@ const gameSlice = createSlice({
   reducers: {
     changeMode(
       state,
-      action: PayloadAction<{
-        mode: 'start' | 'play' | 'result'
-      }>,
+      action: PayloadAction<'start' | 'play' | 'result'>,
     ) {
-      const { mode } = action.payload;
-      state.mode = mode;
+      state.mode = action.payload;
     },
     setLevel(
       state,
-      action: PayloadAction<{
-        charter: number, page: number,
-      }>,
+      action: PayloadAction<number>,
     ) {
-      const { charter, page } = action.payload;
-      state.charter = charter;
-      state.page = page;
+      state.charter = action.payload;
     },
   },
 });

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useAppDispatch, useAppSelector } from '../../app/store';
+import { qntCharters } from '../../constants/constants';
 import { changeCharter, selectCharter } from '../book/bookSlice';
 import './ListCharters.css';
 
@@ -28,7 +29,7 @@ function ListCharters() {
     localStorage.setItem('page', '1');
   };
 
-  const listCharters = Array.from({ length: 7 }, (_, i) => i + 1)
+  const listCharters = Array.from({ length: qntCharters }, (_, i) => i + 1)
     .map((charter) => (
       <li
         key={charter}
