@@ -14,6 +14,8 @@
   --color-hard: #f77272;
   --color-learned: #6fc264;
   --color-button: linear-gradient(55deg, #ff3f3a 0%, #f75e05 100%);
+  --color-error: #f77272;
+  --color-correct: #6fc264;
 }
 
 * { box-sizing: border-box; }

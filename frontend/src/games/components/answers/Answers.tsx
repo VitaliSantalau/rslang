@@ -1,14 +1,22 @@
-import { MouseEvent } from 'react';
+/* eslint-disable no-unused-vars */
+import { MouseEvent, useEffect, useState } from 'react';
 import { IWord } from '../../../interfaces/IWord';
-import shuffle from '../../../utils.ts/shuffle';
+import getAnswers from '../../../utils.ts/getAnswers';
+import { TState } from '../../modes/play/PlayAudioChallenge';
 import './Answers.css';
 
 interface IProps {
   wordId: string;
   data: IWord[];
+  state: TState;
+  handleState: (current: TState) => void;
 }
 
-function Answers({ wordId, data }: IProps) {
+function Answers({
+  wordId, data, handleState, state,
+}: IProps) {
+  const [answers, setAnswers] = useState<IWord[] | undefined>();
+
   const checkAnswer = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
   ) => {
@@ -16,23 +24,40 @@ function Answers({ wordId, data }: IProps) {
     const id = target.value;
     if (id === wordId) {
       target.classList.add('correct');
-    } else target.classList.add('error');
+      // set correct with id { word, id, translate }
+    } else {
+      target.classList.add('error');
+      // set error with id
+    }
+
+    handleState('answer');
   };
 
-  const newArr = [...data];
-  const optArr = newArr
-    .filter((el: IWord) => el.id !== wordId);
-  const word = newArr.filter((el) => el.id === wordId);
-  const answers = shuffle(shuffle(optArr).slice(0, 3).concat(word));
+  useEffect(() => {
+    if (state === 'question') {
+      setAnswers(
+        getAnswers({ data, wordId }),
+      );
+
+      document.querySelectorAll('.answer-btn')
+        .forEach((el) => {
+          el.classList.remove('correct', 'error');
+        });
+    }
+  }, [data, state, wordId]);
+
   return (
     <div className="answers-container">
       {
-        answers.map((el) => (
+        answers
+        && answers.map((el) => (
           <button
             key={el.id}
             type="button"
+            className="answer-btn "
             value={el.id}
             onClick={(e) => checkAnswer(e)}
+            disabled={state === 'answer'}
           >
             {el.word}
           </button>

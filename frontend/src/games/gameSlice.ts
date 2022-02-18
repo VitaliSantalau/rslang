@@ -7,6 +7,8 @@ interface IInitialState {
   source: 'main' | 'book';
   charter: number;
   page: number;
+  correct: [],
+  error: [],
 }
 
 const initialState: IInitialState = {
@@ -14,6 +16,8 @@ const initialState: IInitialState = {
   source: 'main',
   charter: 1,
   page: 1,
+  correct: [],
+  error: [],
 };
 
 const gameSlice = createSlice({
