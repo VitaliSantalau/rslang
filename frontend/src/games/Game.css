@@ -1,11 +1,3 @@
-.game {
-  background-color: var(--color-audiochallenge-bg);
-}
-
-.game ~ footer {
-  background-color: var(--color-audiochallenge-bg);
-}
-
 .game ~ footer * {
   display: none;
 }
@@ -15,6 +7,22 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.game.audioChallenge {
+  background-color: var(--color-audiochallenge-bg);
+}
+
+.game.audioChallenge ~ footer {
+  background-color: var(--color-audiochallenge-bg);
+}
+
+.game.sprint {
+  background-color: var(--color-sprint-bg);
+}
+
+.game.sprint ~ footer {
+  background-color: var(--color-sprint-bg);
 }
 
 .game-start {

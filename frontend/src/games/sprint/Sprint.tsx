@@ -7,12 +7,12 @@ import Play from '../modes/play/Play';
 import ExitBtn from '../components/exitBtn.tsx/ExitBtn';
 import Result from '../modes/result/Result';
 
-function AudioChallenge() {
+function Sprint() {
   const mode = useAppSelector(selectMode);
 
   return (
     <>
-      <main className="game audioChallenge">
+      <main className="game sprint">
         <div className="container">
           {
             mode !== 'result'
@@ -22,14 +22,14 @@ function AudioChallenge() {
             mode === 'start'
             && (
               <Start
-                title="AudioChallenge"
+                title="Sprint"
                 text="text text text"
               />
             )
           }
           {
             mode === 'play'
-            && <Play game="audioChallenge" />
+            && <Play game="sprint" />
           }
           {
             mode === 'result'
@@ -44,4 +44,4 @@ function AudioChallenge() {
   );
 }
 
-export default AudioChallenge;
+export default Sprint;

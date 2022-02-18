@@ -14,7 +14,7 @@ import FinishBtn from '../../components/finishBtn.tsx/FinishBtn';
 
 export type TState = 'question' | 'answer';
 
-function PlayAudioChallenge() {
+function Sprint() {
   const [index, setIndex] = useState(0);
   const [state, setState] = useState<TState>('question');
   const [isFinish, setIsFinish] = useState(false);
@@ -99,4 +99,4 @@ function PlayAudioChallenge() {
   );
 }
 
-export default PlayAudioChallenge;
+export default Sprint;

@@ -1,21 +1,28 @@
 /* eslint-disable no-unused-vars */
 import { MouseEvent, useEffect, useState } from 'react';
+import { useAppDispatch } from '../../../app/store';
 import { IWord } from '../../../interfaces/IWord';
 import getAnswers from '../../../utils.ts/getAnswers';
+import { setCorrect, setError } from '../../gameSlice';
 import { TState } from '../../modes/play/PlayAudioChallenge';
 import './Answers.css';
 
 interface IProps {
-  wordId: string;
+  word: IWord;
   data: IWord[];
   state: TState;
   handleState: (current: TState) => void;
 }
 
 function Answers({
-  wordId, data, handleState, state,
+  word, data, handleState, state,
 }: IProps) {
   const [answers, setAnswers] = useState<IWord[] | undefined>();
+  const dispatch = useAppDispatch();
+
+  const {
+    id: wordId, wordTranslate, word: wordName,
+  } = word;
 
   const checkAnswer = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
@@ -24,10 +31,16 @@ function Answers({
     const id = target.value;
     if (id === wordId) {
       target.classList.add('correct');
-      // set correct with id { word, id, translate }
+
+      dispatch(setCorrect({
+        id: wordId, word: wordName, translate: wordTranslate,
+      }));
     } else {
       target.classList.add('error');
-      // set error with id
+
+      dispatch(setError({
+        id: wordId, word: wordName, translate: wordTranslate,
+      }));
     }
 
     handleState('answer');
