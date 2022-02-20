@@ -4,7 +4,6 @@ import Intro from '../../components/intro/Intro';
 import Levels from '../../components/levels/Levels';
 import StartBtn from '../../components/startBtn/StartBtn';
 import { setSource } from '../../gameSlice';
-import './Start.css';
 
 interface IProps {
   title: string;

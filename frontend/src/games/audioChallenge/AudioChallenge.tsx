@@ -22,8 +22,8 @@ function AudioChallenge() {
             mode === 'start'
             && (
               <Start
-                title="AudioChallenge"
-                text="text text text"
+                title="Audio Challenge"
+                text="This is a mini-game to practice your listening skills"
               />
             )
           }
@@ -34,7 +34,7 @@ function AudioChallenge() {
           {
             mode === 'result'
             && (
-              <Result />
+              <Result game="audiochallenge" />
             )
           }
         </div>

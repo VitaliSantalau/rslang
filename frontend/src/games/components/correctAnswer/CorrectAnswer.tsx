@@ -6,10 +6,10 @@ interface IProps {
   data: IWord | IUserWord;
 }
 
-function WordImage({ data }: IProps) {
+function CorrectAnswer({ data }: IProps) {
   const { image, word, wordTranslate } = data;
   return (
-    <>
+    <div className="correctAnswer-container">
       <img
         className="answer-img"
         src={`${baseDataURL}${image}`}
@@ -21,8 +21,8 @@ function WordImage({ data }: IProps) {
       <p className="answer-transl">
         {wordTranslate}
       </p>
-    </>
+    </div>
   );
 }
 
-export default WordImage;
+export default CorrectAnswer;

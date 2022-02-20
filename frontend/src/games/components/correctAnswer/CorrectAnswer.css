@@ -1,0 +1,22 @@
+.correctAnswer-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer-img {
+  height: 70%;
+  width: auto;
+}
+
+.answer-word {
+  font-size: 3rem;
+  margin: 0.5rem;
+}
+
+.answer-transl {
+  font-size: 2.5rem;
+  margin: 0.5rem;
+}

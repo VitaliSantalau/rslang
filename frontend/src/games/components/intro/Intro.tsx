@@ -1,5 +1,3 @@
-import './Intro.css';
-
 interface IProps {
   title: string;
   text: string;

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../app/store';
 import { resetMode } from '../../gameSlice';
@@ -17,9 +18,7 @@ function ExitBtn() {
       type="button"
       className="exit-btn"
       onClick={handleClick}
-    >
-      exit
-    </button>
+    />
   );
 }
 

@@ -1,15 +1,15 @@
 .game-player {
-  display: inline;
-  width: 3rem;
-  height: 3rem;
-  background-image: url(../../../assets/icons/outline.svg);
+  width: 15rem;
+  height: 15rem;
+  background-image: url(../../../assets/icons/play.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   padding: 0;
-  /* border: none; */
+  border: 10px solid var(--color-gray);
+  border-radius: 50%;
   cursor: pointer;
-  background-color: transparent;
+  background-color: var(--color-gray);
   transition: transform 0.3s;
 }
 

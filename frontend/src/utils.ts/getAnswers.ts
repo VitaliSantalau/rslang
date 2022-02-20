@@ -13,6 +13,6 @@ export default function getAnswers({ data, wordId }: IProps) {
   const word = data.filter((el) => el.id === wordId);
 
   return shuffle(
-    shuffle(arr).slice(0, 3).concat(word),
+    shuffle(arr).slice(0, 4).concat(word),
   );
 }

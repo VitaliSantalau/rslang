@@ -10,7 +10,7 @@ interface IProps {
 }
 
 function Player({ audio, path }: IProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const start = useCallback(() => {
     audio.src = `${baseDataURL}${path}`;
@@ -31,6 +31,24 @@ function Player({ audio, path }: IProps) {
       start();
     } else stop();
   }, [isPlaying, start, stop]);
+
+  useEffect(() => {
+    setIsPlaying(true);
+  }, [path]);
+
+  useEffect(() => {
+    const handleKeyPress = (
+      e: globalThis.KeyboardEvent,
+    ) => {
+      if (e.code !== 'Space') return;
+      setIsPlaying(true);
+    };
+
+    window.addEventListener('keypress', handleKeyPress);
+    return () => {
+      window.removeEventListener('keypress', handleKeyPress);
+    };
+  }, []);
 
   useEffect(() => {
     const handleEndAudio = () => {

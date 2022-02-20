@@ -44,9 +44,11 @@ const gameSlice = createSlice({
     },
     setLevel(
       state,
-      action: PayloadAction<number>,
+      action: PayloadAction<{charter: number, page: number}>,
     ) {
-      state.charter = action.payload;
+      const { charter, page } = action.payload;
+      state.charter = charter;
+      state.page = page;
     },
     setCorrect(
       state,

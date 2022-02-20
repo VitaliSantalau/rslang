@@ -23,7 +23,7 @@ function Sprint() {
             && (
               <Start
                 title="Sprint"
-                text="text text text"
+                text="This is a mini-game to test the learned words"
               />
             )
           }
@@ -34,7 +34,7 @@ function Sprint() {
           {
             mode === 'result'
             && (
-              <Result />
+              <Result game="sprint" />
             )
           }
         </div>
