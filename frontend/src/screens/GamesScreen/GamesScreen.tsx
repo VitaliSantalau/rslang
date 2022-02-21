@@ -1,8 +1,17 @@
 import './GamesScreen.css';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
+import { useAppDispatch } from '../../app/store';
+import { resetMode } from '../../games/gameSlice';
 
 function GamesScreen() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(resetMode());
+  }, [dispatch]);
+
   return (
     <>
       <main className="main gamescreen">

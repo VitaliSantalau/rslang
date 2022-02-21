@@ -2,8 +2,8 @@ import { useAppSelector } from '../../../app/store';
 import { selectSource } from '../../gameSlice';
 import PlayAudioChallenge from './PlayAudioChallenge';
 import PlayAudioChallengeBook from './PlayAudioChallengeBook';
-import Sprint from './PlaySprint';
-import SprintBook from './SprintBook';
+import PlaySprint from './PlaySprint';
+import PlaySprintBook from './PlaySprintBook';
 
 interface IProps {
   game: 'audioChallenge' | 'sprint';
@@ -25,9 +25,9 @@ function Play({ game }: IProps) {
       {
         game === 'sprint'
         && ((
-          source === 'main' && <Sprint />
+          source === 'main' && <PlaySprint />
         ) || (
-          source === 'book' && <SprintBook />
+          source === 'book' && <PlaySprintBook />
         ))
       }
     </div>

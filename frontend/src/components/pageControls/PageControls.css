@@ -3,6 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.pageControls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 20rem;
   padding: 0.5rem 2rem;;
 }
@@ -34,4 +40,11 @@
 .next-arrow {
   background-image: url(../../assets/icons/next-arrow.svg);
 }
-  
+
+.gameBtn-container {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  height: 4rem;
+  padding-right: 5rem;
+}

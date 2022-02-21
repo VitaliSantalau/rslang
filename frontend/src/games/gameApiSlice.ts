@@ -28,11 +28,12 @@ export const gameApiSlice = apiSlice.injectEndpoints({
       query: ({
         userId, charter, page,
       }) => (
-        `/users/${userId}/aggregatedWords?group=${charter}&page=${page}&wordsPerPage=20`
+        `/users/${userId}/aggregatedWords?group=${charter}&page=${page}&wordsPerPage=20&filter={"$or":[{"userWord.difficulty":"hard"},{"userWord":null}]}`
       ),
       transformResponse(response: IRespGetBookWords[]) {
         return response[0].paginatedResults;
       },
+      providesTags: ['MogifyWord'],
     }),
   }),
 });
