@@ -1,0 +1,21 @@
+.start-btn {
+  min-width: 11rem;
+  padding: 1rem;
+  margin: 3rem;
+  font-size: 3rem;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+  color: var(--color-main-text);
+  background-color: transparent;
+  border: 1px solid var(--color-main-text);
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.audioChallenge .start-btn:hover {
+  background-color: #88c3f7;
+}
+
+.sprint .start-btn:hover {
+  background-color: #b2bafc;
+}

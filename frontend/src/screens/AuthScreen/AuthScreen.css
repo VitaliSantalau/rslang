@@ -1,0 +1,9 @@
+.authscreen {
+  justify-content: center;
+}
+
+.authscreen .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
