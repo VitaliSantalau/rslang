@@ -1,0 +1,28 @@
+.listWords {
+  grid-area: listWords;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 2.5rem;
+  padding: 1rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.listWords::-webkit-scrollbar {
+  width: 0;
+}
+
+.listWords::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.listWords::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.listWords::-webkit-scrollbar-thumb {
+  background-color: var(--color-line);
+  border-radius: 20px;
+}

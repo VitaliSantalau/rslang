@@ -1,0 +1,193 @@
+.word-container {
+  position: relative;
+  display: grid;
+  grid-template-areas: 
+    "image"
+    "word"
+    "description";
+  grid-template-columns: 1fr;
+  grid-template-rows: 30rem 10rem 1fr;
+  width: 100%;
+  max-width: 41rem;
+  padding: 0.5rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.word-container.hard {
+  box-shadow: inset 0.5em 0.5em 2em var(--color-hard);
+}
+
+.word-container.learned {
+  box-shadow: inset 0.5em 0.5em 2em var(--color-learned);
+}
+
+.word-img {
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+}
+
+.word {
+  grid-area: word;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+  padding: 1rem;
+}
+
+.word-transl-container {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.word-transl {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.word-description {
+  grid-area: description;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.word p,
+.word-text p {
+  margin: 0;
+}
+
+.word-text {
+  font-size: 1.8rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+.word-text .row p {
+  font-weight: 400;
+}
+
+.word-text > p {
+  font-weight: 300;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  margin: 0.5rem;
+}
+
+.btn-hard {
+  min-width: 11rem;
+  padding: 0.25rem;
+  font-size: 1.6rem;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+  color: var(--color-second-text);
+  background-color: var(--color-hard);
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.btn-hard:hover {
+  box-shadow: inset 0.01rem 0.01rem 0.5rem var(--color-fourth-text);
+}
+
+.btn-learn {
+  min-width: 11rem;
+  padding: 0.25rem;
+  font-size: 1.6rem;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+  color: var(--color-second-text);
+  background-color: var(--color-learned);
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.btn-learn:hover {
+  box-shadow: inset 0.01rem 0.01rem 0.5rem var(--color-fourth-text);
+}
+
+.btn-stat {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.btn-stat:hover {
+  transform: scale(1.1);
+}
+
+.btn-stat.to {
+  background-image: url(../../assets/icons/forward-arrow.svg);
+}
+
+.btn-stat.from {
+  background-image: url(../../assets/icons/back-arrow.svg);
+}
+
+.statWord {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statWord-title {
+  font-size: 3rem;
+}
+
+.statWord-game {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 2rem;
+}
+
+.statWord-game-title {
+  font-size: 2.2rem;
+}
+
+.statWord-game-result {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.statWord-game-correct {
+  font-size: 2.5rem;
+  color: var(--color-learned);
+}
+
+.statWord-game-wrong {
+  font-size: 2.5rem;
+  color: var(--color-hard);
+}
+
+.statWord-game-result p:nth-child(2) {
+  font-weight: 100;
+}

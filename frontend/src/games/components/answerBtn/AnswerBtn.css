@@ -1,0 +1,19 @@
+.sprint .answer-btn {
+  font-size: 2.5rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.sprint .answer-btn:hover {
+  border: 1px solid;
+}
+
+.sprint .answer-btn.correct {
+  box-shadow: inset 1rem 0rem 2rem var(--color-correct);
+}
+
+.sprint .answer-btn.wrong {
+  box-shadow: inset 1rem 0rem 2rem var(--color-error);
+}

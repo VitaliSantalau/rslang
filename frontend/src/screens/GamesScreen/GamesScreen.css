@@ -1,0 +1,51 @@
+.gamescreen {
+  justify-content: center;
+  padding-top: 5rem;
+  height: calc(100vh - 5rem);
+}
+  
+.gamescreen .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gamescreen-title {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.gamescreen .game-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.gamescreen .game-link {
+  width: 80%;
+  max-width: 40rem;
+  height: 30rem;
+  padding: 0.4rem 2rem;
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--color-main-text);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.gamescreen .game-link:hover {
+  box-shadow: 0.5rem 0.5rem 1rem rgb(160, 160, 160);
+}
+
+.game-link.audioChallenge {
+  background-image: url(../../assets/images/challenge-bg.jpg);
+}
+
+.game-link.sprint {
+  background-image: url(../../assets/images/sprint-bg.jpg);
+}

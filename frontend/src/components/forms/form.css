@@ -1,0 +1,134 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 40rem;
+  height: 100%;
+  max-height: 70rem;
+  padding: 1rem 3rem;
+  color: var(--color-main-text);
+  border: 1px solid;
+}
+
+.form-titlte-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  margin: 0;
+  padding-bottom: 1rem;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.form-title-text {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.form-field label {
+  margin: 1rem 0;
+}
+
+.form-field input {
+  height: 4rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.btn-container {
+  width: 100%;
+  position: relative;
+}
+
+.btn-container input {
+  width: 100%;
+  padding-right: 5rem;
+}
+
+.btn-showPassword {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.btn-showPassword.show {
+  background-image: url(../../assets/icons/eye.svg);
+}
+
+.btn-showPassword.hide {
+  background-image: url(../../assets/icons/closed-eye.svg);
+}
+
+.form-button {
+  width: 100%;
+  height: 4rem;
+  padding: 0;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  color: var(--color-second-text);
+  background: var(--color-button);
+}
+
+.form-select-container {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.form-select-btn {
+  font-size: 2rem;
+  color: var(--color-third-text);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.form-alert-container {
+  width: 100%;
+  height: 5rem;
+}
+
+.form-alert {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.form-alert.success {
+  font-size: 3rem;
+  color: green;
+}
+
+.form-alert.error {
+  color: var(--color-third-text);
+}
+
+.form-alert.error p {
+  margin: 0.2rem 0;
+}

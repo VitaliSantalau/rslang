@@ -1,0 +1,93 @@
+.listCharters {
+  grid-area: listCharters;
+  padding-top: 5rem;
+  overflow-y: scroll;
+  border-right: 2px solid var(--color-fourth-text);
+}
+
+.listCharters::-webkit-scrollbar {
+  width: 0;
+}
+
+.charter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+  font-size: 4rem;
+  font-weight: 300;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  border-bottom: 2px solid var(--color-fourth-text);
+  cursor: pointer;
+}
+
+.charter:hover {
+  color: var(--color-third-text);
+}
+
+.charter.selected {
+  color: var(--color-third-text);
+}
+
+.charter-mark {
+  width: 70%;
+  height: 5rem;
+}
+
+.charter:first-child .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=f8f4e9);
+}
+
+
+.charter:nth-child(2) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=faf0d0);
+}
+
+.charter:nth-child(3) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=f5d0a5);
+}
+
+.charter:nth-child(4) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=dfe6fa);
+}
+
+.charter:nth-child(5) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=bbcdfa);
+}
+
+.charter:nth-child(6) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=dba8ce);
+}
+
+.charter:nth-child(7) .charter-mark {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=f1a9a9);
+}
+
+.listCharters.firstCharter ~ .listWords > .word-container {
+  background-color: #f8f4e9;
+}
+
+.listCharters.secondCharter ~ .listWords > .word-container {
+  background-color: #faf0d0;
+}
+
+.listCharters.thirdCharter ~ .listWords > .word-container {
+  background-color: #f5d0a5;
+}
+
+.listCharters.fourthCharter ~ .listWords > .word-container {
+  background-color: #dfe6fa;
+}
+
+.listCharters.fifthCharter ~ .listWords > .word-container {
+  background-color: #bbcdfa;
+}
+
+.listCharters.sixthCharter ~ .listWords > .word-container {
+  background-color: #dba8ce;
+}
+
+.listCharters.seventhCharter ~ .listWords > .word-container {
+  background-color: #f1a9a9;
+}

@@ -1,0 +1,42 @@
+.desc-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-image: url(../../assets/images/desc-background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.desc-section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desc {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 90%;
+  padding: 15rem 0;
+  font-size: 3rem;
+  background-image: url(../../assets/images/desc-section-illustration.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+}
+
+.desc-text-container {
+  width: 30%;
+}
+
+.desc-text-container ul {
+  padding: 0;
+  list-style: none;
+}
+
+.desc-text-container li {
+  font-size: 2rem;
+  line-height: 3rem;
+}
