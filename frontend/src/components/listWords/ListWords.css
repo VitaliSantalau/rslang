@@ -14,6 +14,15 @@
   width: 0;
 }
 
-.listHardWords.error {
-  text-align: center;
+.listWords::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.listWords::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.listWords::-webkit-scrollbar-thumb {
+  background-color: var(--color-line);
+  border-radius: 20px;
 }

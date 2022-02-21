@@ -1,0 +1,13 @@
+.timer {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 7rem;
+  font-size: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-games-bg);
+}

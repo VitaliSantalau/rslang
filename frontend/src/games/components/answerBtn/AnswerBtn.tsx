@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
+import { useEffect } from 'react';
 import './AnswerBtn.css';
 
 interface IProps<T> {
-  handleChangeIndex: (type: T) => void;
+  handleAnswer: (type: T) => void;
   type: T;
 }
 
 function NextBtn({
-  handleChangeIndex, type,
+  handleAnswer, type,
 }: IProps<'correct' | 'wrong'>) {
   const handleClick = () => {
-    handleChangeIndex(type);
+    handleAnswer(type);
   };
 
   return (

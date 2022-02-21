@@ -66,7 +66,7 @@ export const bookApiSlice = apiSlice.injectEndpoints({
       query: ({
         userId,
       }: IPropsGetListUserHardWords) => (
-        `/users/${userId}/aggregatedWords?filter={"userWord.difficulty":"hard"}&wordsPerPage=4000`
+        `/users/${userId}/aggregatedWords?filter={"userWord.difficulty":"hard"}&wordsPerPage=3600`
       ),
       transformResponse(response: IRespGetListUserWords[]) {
         return response[0].paginatedResults;

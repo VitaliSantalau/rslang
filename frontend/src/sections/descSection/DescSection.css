@@ -35,3 +35,8 @@
   padding: 0;
   list-style: none;
 }
+
+.desc-text-container li {
+  font-size: 2rem;
+  line-height: 3rem;
+}

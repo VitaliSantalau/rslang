@@ -16,12 +16,12 @@ function StartSection() {
             >
               about us
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/project"
               className="intro-link-project"
             >
               about project
-            </NavLink>
+            </NavLink> */}
           </div>
         </div>
       </div>
